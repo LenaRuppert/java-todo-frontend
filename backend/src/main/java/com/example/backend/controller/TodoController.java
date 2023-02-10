@@ -6,7 +6,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.TooManyListenersException;
 
 @RequiredArgsConstructor
 @RestController
@@ -22,9 +21,9 @@ public class TodoController {
 
 
     @PostMapping("/todo")
-    public String addToDo(@RequestBody String todo){
-        System.out.println(todo);
-        return todo;
+    public ToDo addToDo(@RequestBody ToDo todoToAdd){
+       return toDoService.addToDo(todoToAdd);
+
     }
 
     @PutMapping("/todo/{id}")
