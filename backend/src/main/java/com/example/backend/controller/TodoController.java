@@ -15,10 +15,10 @@ public class TodoController {
 
     private final ToDoService toDoService;
 
-    @GetMapping("/todo")
+   @GetMapping("/todo")
     public List<ToDo> getToDoList(){
-        return toDoService.
-    }
+       return toDoService.getToDoList();
+   }
 
 
     @PostMapping("/todo")
@@ -27,7 +27,20 @@ public class TodoController {
         return todo;
     }
 
+    @PutMapping("/todo/{id}")
+    public ToDo changeStatus(@RequestBody ToDo toDoToChange,@PathVariable String id ){
+        //toDoService.deleteToDo(id);
+        //toDoService.changeToInProgress(id);
+        //toDoService.addToDo(toDoToChange);
+        return toDoToChange;
+    }
 
+
+    @DeleteMapping("/todo/{id}")
+    public void deleteToDo(@PathVariable String id){
+
+
+    }
 
 
 }
